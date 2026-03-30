@@ -29,5 +29,11 @@ namespace FinalProject.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("myname")]
+        public IActionResult GetMyName()
+        {
+            return Ok(new { name = "Duc Toan Le" });
+        }
     }
 }
