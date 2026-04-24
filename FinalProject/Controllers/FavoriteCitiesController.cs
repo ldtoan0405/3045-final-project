@@ -12,47 +12,47 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HobbiesController : ControllerBase
+    public class FavoriteCitiesController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public HobbiesController(AppDbContext context)
+        public FavoriteCitiesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Hobbies
+        // GET: api/FavoriteCities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hobby>>> GetHobbies(int? id)
+        public async Task<ActionResult<IEnumerable<FavoriteCity>>> GetFavoriteCities(int? id)
         {
-            // If id is null or 0, return the first 5 records from the table
+            // If id is null or 0, return the first 5 records
             if (id == null || id == 0)
             {
-                return await _context.Hobbies.Take(5).ToListAsync();
+                return await _context.FavoriteCities.Take(5).ToListAsync();
             }
 
-            // Otherwise, search for the specific hobby by id
-            var hobby = await _context.Hobbies.FindAsync(id);
+            // Otherwise, find the specific city
+            var favoriteCity = await _context.FavoriteCities.FindAsync(id);
 
-            if (hobby == null)
+            if (favoriteCity == null)
             {
                 return NotFound();
             }
 
-            return Ok(new List<Hobby> { hobby });
+            return Ok(new List<FavoriteCity> { favoriteCity });
         }
 
-        // PUT: api/Hobbies/5
+        // PUT: api/FavoriteCities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHobby(int id, Hobby hobby)
+        public async Task<IActionResult> PutFavoriteCity(int id, FavoriteCity favoriteCity)
         {
-            if (id != hobby.Id)
+            if (id != favoriteCity.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(hobby).State = EntityState.Modified;
+            _context.Entry(favoriteCity).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!HobbyExists(id))
+                if (!FavoriteCityExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // POST: api/Hobbies
+        // POST: api/FavoriteCities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Hobby>> PostHobby(Hobby hobby)
+        public async Task<ActionResult<FavoriteCity>> PostFavoriteCity(FavoriteCity favoriteCity)
         {
-            _context.Hobbies.Add(hobby);
+            _context.FavoriteCities.Add(favoriteCity);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetHobby", new { id = hobby.Id }, hobby);
+            return CreatedAtAction("GetFavoriteCity", new { id = favoriteCity.Id }, favoriteCity);
         }
 
-        // DELETE: api/Hobbies/5
+        // DELETE: api/FavoriteCities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteHobby(int id)
+        public async Task<IActionResult> DeleteFavoriteCity(int id)
         {
-            var hobby = await _context.Hobbies.FindAsync(id);
-            if (hobby == null)
+            var favoriteCity = await _context.FavoriteCities.FindAsync(id);
+            if (favoriteCity == null)
             {
                 return NotFound();
             }
 
-            _context.Hobbies.Remove(hobby);
+            _context.FavoriteCities.Remove(favoriteCity);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool HobbyExists(int id)
+        private bool FavoriteCityExists(int id)
         {
-            return _context.Hobbies.Any(e => e.Id == id);
+            return _context.FavoriteCities.Any(e => e.Id == id);
         }
     }
 }

@@ -41,7 +41,6 @@ namespace FinalProject.Controllers
                 return NotFound();
             }
 
-            // Return the single result as a list to maintain the return type
             return Ok(new List<TeamMember> { teamMember });
         }
 

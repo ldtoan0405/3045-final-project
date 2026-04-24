@@ -4,6 +4,7 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260424172315_UpdateMemberNames")]
+    partial class UpdateMemberNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,144 +24,6 @@ namespace FinalProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("FinalProject.Models.BreakfastFood", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Calories")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsVegetarian")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MainIngredient")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BreakfastFoods");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Calories = 350,
-                            IsVegetarian = true,
-                            MainIngredient = "Flour",
-                            Name = "Pancakes"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Calories = 250,
-                            IsVegetarian = true,
-                            MainIngredient = "Eggs",
-                            Name = "Omelet"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Calories = 450,
-                            IsVegetarian = false,
-                            MainIngredient = "Bacon",
-                            Name = "Bacon & Eggs"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Calories = 150,
-                            IsVegetarian = true,
-                            MainIngredient = "Milk",
-                            Name = "Greek Yogurt"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Calories = 600,
-                            IsVegetarian = false,
-                            MainIngredient = "Tortilla",
-                            Name = "Breakfast Burrito"
-                        });
-                });
-
-            modelBuilder.Entity("FinalProject.Models.FavoriteCity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("HasMajorAirport")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Population")
-                        .HasColumnType("int");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FavoriteCities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            HasMajorAirport = true,
-                            Name = "Cincinnati",
-                            Population = 309000,
-                            State = "Ohio"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            HasMajorAirport = true,
-                            Name = "Nashville",
-                            Population = 689000,
-                            State = "Tennessee"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            HasMajorAirport = false,
-                            Name = "Boulder",
-                            Population = 108000,
-                            State = "Colorado"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            HasMajorAirport = true,
-                            Name = "Savannah",
-                            Population = 147000,
-                            State = "Georgia"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            HasMajorAirport = false,
-                            Name = "Asheville",
-                            Population = 94000,
-                            State = "North Carolina"
-                        });
-                });
 
             modelBuilder.Entity("FinalProject.Models.Hobby", b =>
                 {

@@ -12,47 +12,47 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HobbiesController : ControllerBase
+    public class BreakfastFoodsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public HobbiesController(AppDbContext context)
+        public BreakfastFoodsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Hobbies
+        // GET: api/BreakfastFoods
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hobby>>> GetHobbies(int? id)
+        public async Task<ActionResult<IEnumerable<BreakfastFood>>> GetBreakfastFoods(int? id)
         {
-            // If id is null or 0, return the first 5 records from the table
+            // If id is null or 0, return the first 5 records
             if (id == null || id == 0)
             {
-                return await _context.Hobbies.Take(5).ToListAsync();
+                return await _context.BreakfastFoods.Take(5).ToListAsync();
             }
 
-            // Otherwise, search for the specific hobby by id
-            var hobby = await _context.Hobbies.FindAsync(id);
+            // Otherwise, find the specific food item
+            var breakfastFood = await _context.BreakfastFoods.FindAsync(id);
 
-            if (hobby == null)
+            if (breakfastFood == null)
             {
                 return NotFound();
             }
 
-            return Ok(new List<Hobby> { hobby });
+            return Ok(new List<BreakfastFood> { breakfastFood });
         }
 
-        // PUT: api/Hobbies/5
+        // PUT: api/BreakfastFoods/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHobby(int id, Hobby hobby)
+        public async Task<IActionResult> PutBreakfastFood(int id, BreakfastFood breakfastFood)
         {
-            if (id != hobby.Id)
+            if (id != breakfastFood.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(hobby).State = EntityState.Modified;
+            _context.Entry(breakfastFood).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!HobbyExists(id))
+                if (!BreakfastFoodExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // POST: api/Hobbies
+        // POST: api/BreakfastFoods
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Hobby>> PostHobby(Hobby hobby)
+        public async Task<ActionResult<BreakfastFood>> PostBreakfastFood(BreakfastFood breakfastFood)
         {
-            _context.Hobbies.Add(hobby);
+            _context.BreakfastFoods.Add(breakfastFood);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetHobby", new { id = hobby.Id }, hobby);
+            return CreatedAtAction("GetBreakfastFood", new { id = breakfastFood.Id }, breakfastFood);
         }
 
-        // DELETE: api/Hobbies/5
+        // DELETE: api/BreakfastFoods/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteHobby(int id)
+        public async Task<IActionResult> DeleteBreakfastFood(int id)
         {
-            var hobby = await _context.Hobbies.FindAsync(id);
-            if (hobby == null)
+            var breakfastFood = await _context.BreakfastFoods.FindAsync(id);
+            if (breakfastFood == null)
             {
                 return NotFound();
             }
 
-            _context.Hobbies.Remove(hobby);
+            _context.BreakfastFoods.Remove(breakfastFood);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool HobbyExists(int id)
+        private bool BreakfastFoodExists(int id)
         {
-            return _context.Hobbies.Any(e => e.Id == id);
+            return _context.BreakfastFoods.Any(e => e.Id == id);
         }
     }
 }
