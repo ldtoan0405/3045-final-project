@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260424215732_AddedRemainingTables")]
-    partial class AddedRemainingTables
+    [Migration("20260425001431_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,41 +56,41 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             Calories = 350,
-                            IsVegetarian = true,
-                            MainIngredient = "Flour",
-                            Name = "Pancakes"
+                            IsVegetarian = false,
+                            MainIngredient = "Pork",
+                            Name = "Sausage"
                         },
                         new
                         {
                             Id = 2,
                             Calories = 250,
                             IsVegetarian = true,
-                            MainIngredient = "Eggs",
-                            Name = "Omelet"
+                            MainIngredient = "Flour",
+                            Name = "Waffle"
                         },
                         new
                         {
                             Id = 3,
                             Calories = 450,
                             IsVegetarian = false,
-                            MainIngredient = "Bacon",
-                            Name = "Bacon & Eggs"
+                            MainIngredient = "Pork",
+                            Name = "Bacon"
                         },
                         new
                         {
                             Id = 4,
                             Calories = 150,
                             IsVegetarian = true,
-                            MainIngredient = "Milk",
-                            Name = "Greek Yogurt"
+                            MainIngredient = "Oats",
+                            Name = "Cereal"
                         },
                         new
                         {
                             Id = 5,
-                            Calories = 600,
-                            IsVegetarian = false,
-                            MainIngredient = "Tortilla",
-                            Name = "Breakfast Burrito"
+                            Calories = 300,
+                            IsVegetarian = true,
+                            MainIngredient = "Eggs",
+                            Name = "Omelette"
                         });
                 });
 
@@ -133,32 +133,32 @@ namespace FinalProject.Migrations
                         {
                             Id = 2,
                             HasMajorAirport = true,
-                            Name = "Nashville",
-                            Population = 689000,
-                            State = "Tennessee"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            HasMajorAirport = false,
-                            Name = "Boulder",
-                            Population = 108000,
-                            State = "Colorado"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            HasMajorAirport = true,
-                            Name = "Savannah",
-                            Population = 147000,
+                            Name = "Atlanta",
+                            Population = 498000,
                             State = "Georgia"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 3,
+                            HasMajorAirport = true,
+                            Name = "Columbus",
+                            Population = 921000,
+                            State = "Ohio"
+                        },
+                        new
+                        {
+                            Id = 4,
                             HasMajorAirport = false,
-                            Name = "Asheville",
-                            Population = 94000,
+                            Name = "Dayton",
+                            Population = 137000,
+                            State = "Ohio"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            HasMajorAirport = true,
+                            Name = "Charlotte",
+                            Population = 897000,
                             State = "North Carolina"
                         });
                 });
@@ -195,7 +195,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             Category = "Arts",
                             IsIndoor = false,
-                            Name = "Photography",
+                            Name = "Videography",
                             SkillLevel = 7
                         },
                         new
@@ -209,25 +209,25 @@ namespace FinalProject.Migrations
                         new
                         {
                             Id = 3,
-                            Category = "Games",
-                            IsIndoor = true,
-                            Name = "Chess",
-                            SkillLevel = 5
+                            Category = "Outdoors",
+                            IsIndoor = false,
+                            Name = "rock Climbing",
+                            SkillLevel = 8
                         },
                         new
                         {
                             Id = 4,
-                            Category = "Outdoors",
-                            IsIndoor = false,
-                            Name = "Hiking",
+                            Category = "Sports",
+                            IsIndoor = true,
+                            Name = "Basketball",
                             SkillLevel = 8
                         },
                         new
                         {
                             Id = 5,
-                            Category = "Culinary",
+                            Category = "Fitness",
                             IsIndoor = true,
-                            Name = "Cooking",
+                            Name = "Running",
                             SkillLevel = 6
                         });
                 });
@@ -279,26 +279,26 @@ namespace FinalProject.Migrations
                         new
                         {
                             Id = 3,
-                            Birthdate = new DateTime(2001, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CollegeProgram = "Math",
-                            FullName = "Bob Smith",
-                            YearInProgram = "Sophomore"
+                            Birthdate = new DateTime(1946, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "Business Administration",
+                            FullName = "Jimmy Buffett",
+                            YearInProgram = "Senior"
                         },
                         new
                         {
                             Id = 4,
-                            Birthdate = new DateTime(2002, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CollegeProgram = "Physics",
-                            FullName = "Alice Wong",
-                            YearInProgram = "Freshman"
+                            Birthdate = new DateTime(1948, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "Kinesiology",
+                            FullName = "Carl Weathers",
+                            YearInProgram = "Junior"
                         },
                         new
                         {
                             Id = 5,
-                            Birthdate = new DateTime(2000, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CollegeProgram = "Statistics",
-                            FullName = "Charlie Brown",
-                            YearInProgram = "Junior"
+                            Birthdate = new DateTime(1732, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CollegeProgram = "Political Science",
+                            FullName = "George Washington",
+                            YearInProgram = "Senior"
                         });
                 });
 #pragma warning restore 612, 618
