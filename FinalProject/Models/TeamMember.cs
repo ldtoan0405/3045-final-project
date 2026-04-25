@@ -23,8 +23,8 @@ public class Hobby
 public class FavoriteCity
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string State { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string State { get; set; } = string.Empty;
     public int Population { get; set; }
     public bool HasMajorAirport { get; set; }
 }
@@ -32,8 +32,8 @@ public class FavoriteCity
 public class BreakfastFood
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string MainIngredient { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string MainIngredient { get; set; } = string.Empty;
     public int Calories { get; set; }
     public bool IsVegetarian { get; set; }
 }
