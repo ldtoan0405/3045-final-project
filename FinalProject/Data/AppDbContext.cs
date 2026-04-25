@@ -18,33 +18,35 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<TeamMember>().HasData(
             new TeamMember { Id = 1, FullName = "Duc Toan Le", Birthdate = new DateTime(2004, 5, 4), CollegeProgram = "Mathematics", YearInProgram = "Junior" },
             new TeamMember { Id = 2, FullName = "Nate Otten", Birthdate = new DateTime(2007, 1, 5), CollegeProgram = "Information Technology", YearInProgram = "Freshman" },
-            new TeamMember { Id = 3, FullName = "Bob Smith", Birthdate = new DateTime(2001, 3, 22), CollegeProgram = "Math", YearInProgram = "Sophomore" },
-            new TeamMember { Id = 4, FullName = "Alice Wong", Birthdate = new DateTime(2002, 11, 30), CollegeProgram = "Physics", YearInProgram = "Freshman" },
-            new TeamMember { Id = 5, FullName = "Charlie Brown", Birthdate = new DateTime(2000, 7, 4), CollegeProgram = "Statistics", YearInProgram = "Junior" }
+            new TeamMember { Id = 3, FullName = "Jimmy Buffett", Birthdate = new DateTime(1946, 12, 25), CollegeProgram = "Business Administration", YearInProgram = "Senior" },
+            new TeamMember { Id = 4, FullName = "Carl Weathers", Birthdate = new DateTime(1948, 1, 14), CollegeProgram = "Kinesiology", YearInProgram = "Junior" },
+            new TeamMember { Id = 5, FullName = "George Washington", Birthdate = new DateTime(1732, 2, 22), CollegeProgram = "Political Science", YearInProgram = "Senior" }
         );
 
         modelBuilder.Entity<Hobby>().HasData(
-            new Hobby { Id = 1, Name = "Photography", Category = "Arts", SkillLevel = 7, IsIndoor = false },
+            new Hobby { Id = 1, Name = "Videography", Category = "Arts", SkillLevel = 7, IsIndoor = false },
             new Hobby { Id = 2, Name = "Coding", Category = "Technology", SkillLevel = 9, IsIndoor = true },
-            new Hobby { Id = 3, Name = "Chess", Category = "Games", SkillLevel = 5, IsIndoor = true },
-            new Hobby { Id = 4, Name = "Hiking", Category = "Outdoors", SkillLevel = 8, IsIndoor = false },
-            new Hobby { Id = 5, Name = "Cooking", Category = "Culinary", SkillLevel = 6, IsIndoor = true }
+            new Hobby { Id = 3, Name = "rock Climbing", Category = "Outdoors", SkillLevel = 8, IsIndoor = false },
+            new Hobby { Id = 4, Name = "Basketball", Category = "Sports", SkillLevel = 8, IsIndoor = true },
+            new Hobby { Id = 5, Name = "Running", Category = "Fitness", SkillLevel = 6, IsIndoor = true }
         );
 
         modelBuilder.Entity<FavoriteCity>().HasData(
             new FavoriteCity { Id = 1, Name = "Cincinnati", State = "Ohio", Population = 309000, HasMajorAirport = true },
-            new FavoriteCity { Id = 2, Name = "Nashville", State = "Tennessee", Population = 689000, HasMajorAirport = true },
-            new FavoriteCity { Id = 3, Name = "Boulder", State = "Colorado", Population = 108000, HasMajorAirport = false },
-            new FavoriteCity { Id = 4, Name = "Savannah", State = "Georgia", Population = 147000, HasMajorAirport = true },
-            new FavoriteCity { Id = 5, Name = "Asheville", State = "North Carolina", Population = 94000, HasMajorAirport = false }
+            new FavoriteCity { Id = 2, Name = "Atlanta", State = "Georgia", Population = 498000, HasMajorAirport = true },
+            new FavoriteCity { Id = 3, Name = "Columbus", State = "Ohio", Population = 921000, HasMajorAirport = true },
+            new FavoriteCity { Id = 4, Name = "Dayton", State = "Ohio", Population = 137000, HasMajorAirport = false },
+            new FavoriteCity { Id = 5, Name = "Charlotte", State = "North Carolina", Population = 897000, HasMajorAirport = true }
+
         );
 
         modelBuilder.Entity<BreakfastFood>().HasData(
-            new BreakfastFood { Id = 1, Name = "Pancakes", MainIngredient = "Flour", Calories = 350, IsVegetarian = true },
-            new BreakfastFood { Id = 2, Name = "Omelet", MainIngredient = "Eggs", Calories = 250, IsVegetarian = true },
-            new BreakfastFood { Id = 3, Name = "Bacon & Eggs", MainIngredient = "Bacon", Calories = 450, IsVegetarian = false },
-            new BreakfastFood { Id = 4, Name = "Greek Yogurt", MainIngredient = "Milk", Calories = 150, IsVegetarian = true },
-            new BreakfastFood { Id = 5, Name = "Breakfast Burrito", MainIngredient = "Tortilla", Calories = 600, IsVegetarian = false }
+            new BreakfastFood { Id = 1, Name = "Sausage", MainIngredient = "Pork", Calories = 350, IsVegetarian = false },
+            new BreakfastFood { Id = 2, Name = "Waffle", MainIngredient = "Flour", Calories = 250, IsVegetarian = true },
+            new BreakfastFood { Id = 3, Name = "Bacon", MainIngredient = "Pork", Calories = 450, IsVegetarian = false },
+            new BreakfastFood { Id = 4, Name = "Cereal", MainIngredient = "Oats", Calories = 150, IsVegetarian = true },
+            new BreakfastFood { Id = 5, Name = "Omelette", MainIngredient = "Eggs", Calories = 300, IsVegetarian = true }
+
         );
     }
 }
